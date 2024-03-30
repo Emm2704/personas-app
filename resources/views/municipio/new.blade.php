@@ -37,7 +37,7 @@
           </div>
           <div class="mt-3">
             <button type="submit" class="btn btn-primary">Guardar</button>
-            <a href="{{ route('comunas.index') }}">Cancelar</a>
+            <a href="{{ route('municipios.index') }}">Cancelar</a>
           </div>
       </form>
 </body>
