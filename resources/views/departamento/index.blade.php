@@ -17,7 +17,7 @@
 
     <div class="container">
         <h1>Listado de Departamenots</h1>
-        {{-- <a href="{{ route('departamentos.create') }}" class="btn btn-success">Add</a> --}}
+        <a href="{{ route('departamentos.create') }}" class="btn btn-success">Add</a>
         <table class="table table-dark table-striped">
             <thead>
               <tr>
