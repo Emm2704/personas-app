@@ -12,6 +12,7 @@
     <title>Nueva Comuna</title>
 </head>
 <body>
+    @include('navbar')
   <div class="container-fluid bg-dark text-light py-5">
     <div class="container">
       <h1 class="display-5 fw-bold">Editar Comuna</h1>
@@ -65,6 +66,6 @@
           </div>
       </div>
   </div>
-  
+  @include('footer')
 </body>
 </html>

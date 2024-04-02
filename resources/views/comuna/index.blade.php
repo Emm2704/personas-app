@@ -14,7 +14,7 @@
 
 </head>
 <body>
-
+@include('navbar')
     <div class="container">
         <h1>Listado de comunas</h1>
         <a href="{{ route('comunas.create') }}" class="btn btn-success">Add</a>
@@ -49,8 +49,6 @@
           </table>
 
     </div>
-
-    
-    
+    @include('footer')
 </body>
 </html>

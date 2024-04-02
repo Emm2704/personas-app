@@ -14,6 +14,7 @@
 
 </head>
 <body>
+  @include('navbar')
 
     <div class="container">
         <h1>Listado de Departamenots</h1>
@@ -49,8 +50,6 @@
           </table>
 
     </div>
-
-    
-    
+    @include('footer')
 </body>
 </html>

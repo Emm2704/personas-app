@@ -12,6 +12,7 @@
     <title>Editar País</title>
 </head>
 <body>
+    @include('navbar')
     <div class="p-5 mb-4 text-bg-dark container-fluid">
         <div class="container">
           <h1 class="display-5 fw-bold">Editar País</h1>
@@ -66,6 +67,6 @@
             </div>
         </div>
     </div>
-    
+    @include('footer')
 </body>
 </html>
