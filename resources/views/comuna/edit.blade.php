@@ -58,8 +58,8 @@
                   </div>
                   <div class="form-group mt-2">
                       <div class="col-sm-offset-2 col-sm-10">
-                          <button type="submit" class="btn btn-success">Guardar</button>
-                          <a class="btn btn-primary" href="{{ route('comunas.index') }}" role="button">Cancelar</a>
+                          <button type="submit" class="btn btn-primary">Guardar</button>
+                          <a class="btn btn-secondary" href="{{ route('comunas.index') }}" role="button">Cancelar</a>
                       </div>
                   </div>
               </form>

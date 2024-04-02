@@ -52,7 +52,7 @@
             <div class="form-group mt-2">
               <div class="col-sm-offset-2 col-sm-10">
                 <button type="submit" class="btn btn-success">Guardar</button>
-                <a class="btn btn-primary" href="../index.html" role="button">Listado de Departamentos</a>
+                <a class="btn btn-primary" href="{{ route('departamentos.index') }}" role="button">Cancelar</a>
               </div>
             </div>
           </form>
