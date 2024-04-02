@@ -71,7 +71,12 @@ class PaisController extends Controller
      */
     public function edit($id)
     {
-        //
+        $pais = Pais::find($id);
+        $capitales = DB::table('tb_pais')
+        ->orderBy('pais_capi')
+        ->get();
+
+        return view('pais.edit', ['pais' => $pais, 'capitales' => $capitales]);
     }
 
     /**
@@ -83,7 +88,14 @@ class PaisController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $pais = Pais::find($id);
+
+        $pais -> pais_nomb = $request->name;
+        $pais -> pais_capi = $request->code;
+        $pais -> save();
+
+        $paises = Pais::all();
+        return view('pais.index', ['paises' => $paises]);
     }
 
     /**
@@ -94,6 +106,11 @@ class PaisController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+        $pais = Pais::find($id);
+        $pais->delete();
+
+        $paises = Pais::all();
+        return view('pais.index', ['paises' => $paises]);
     }
 }

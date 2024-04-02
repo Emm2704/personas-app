@@ -12,39 +12,59 @@
     <title>Editar Departamento</title>
 </head>
 <body>
-    <h1>Editar Departamento</h1>
-    <form method="POST" action="{{ route('departamentos.update', ['departamento' => $departamento->depa_codi]) }}">
-        @method('put')
-        @csrf
-        <div class="mb-3">
-          <label for="id" class="form-label">Código Departamento</label>
-          <input type="text" class="form-control" id="id" aria-describedby="idlHelp" name="id"
-          disabled value="{{ $departamento -> depa_codi }}">
-          <div id="idlHelp" class="form-text">Id del departamento</div>
-        </div>
-        <div class="mb-3">
-          <label for="name" class="form-label">Nombre Departamento</label>
-          <input type="text" class="form-control" id="name" name="name" aria-describedby="idlHelp"
-            placeholder="Comuna nombre" value="{{ $departamento -> depa_nomb }}">
-        </div>
-
-        <div class="mb-3">
-            <label for="municipality" class="form-label">Pais</label>
-            <select class="form-select" id="municipality" name="code" required>
-                <option selected disabled value="">Seleccione una...</option>
-                @foreach ($paises as $pais)
-                    @if ($pais -> pais_codi == $departamento -> pais_codi)
-                        <option selected value="{{ $pais -> pais_codi}}">{{ $pais -> pais_nomb }}</option>
-                    @else
-                        <option value="{{ $pais -> pais_codi }}">{{ $pais -> pais_nomb }}</option>
-                    @endif
-                @endforeach
-            </select>
+  <div class="container-fluid bg-dark text-light py-5">
+    <div class="container">
+      <h1 class="display-5 fw-bold">Editar Departamento</h1>
+    </div>
+  </div>
+    <div class="container">
+      <div class="card">
+          <div class="card-header">
+              <span class="text-primary">Datos del departamento</span>
           </div>
-          <div class="mt-3">
-            <button type="submit" class="btn btn-primary">Actualizar</button>
-            <a href="{{ route('departamentos.index') }}">Cancelar</a>
+          <div class="card-body">
+              <form method="POST" class="form-horizontal" action="{{ route('departamentos.store') }}">
+                  @csrf
+                  <div class="form-group">
+                      <label class="control-label col-sm-2" for="id">Código Departamento:</label>
+                      <div class="col-sm-10">
+                          <input type="text" class="form-control" id="id" name="id" placeholder="Ingrese código del departamento"
+                          disabled value="{{ $departamento -> depa_codi }}">
+                          <small id="idlHelp" class="form-text text-muted">ID del departamento</small>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label class="control-label col-sm-2" for="name">Nombre Departamento:</label>
+                      <div class="col-sm-10">
+                          <input type="text" class="form-control" id="name" name="name" placeholder="Ingrese nombre de la comuna"
+                          value="{{ $departamento-> depa_nomb }}">
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label class="control-label col-sm-2" for="municipality">Municipio:</label>
+                      <div class="col-sm-10">
+                          <select class="form-select" id="municipality" name="code" required>
+                              <option selected disabled value="">Seleccione una...</option>
+                              @foreach ($paises as $pais)
+                              @if ($pais -> pais_codi == $departamento -> pais_codi)
+                                  <option selected value="{{ $pais -> pais_codi}}">{{ $pais -> pais_nomb }}</option>
+                              @else
+                                  <option value="{{ $pais -> pais_codi }}">{{ $pais -> pais_nomb }}</option>
+                              @endif
+                          @endforeach
+                          </select>
+                      </div>
+                  </div>
+                  <div class="form-group mt-2">
+                      <div class="col-sm-offset-2 col-sm-10">
+                          <button type="submit" class="btn btn-success">Guardar</button>
+                          <a href="{{ route('departamentos.index') }}">Cancelar</a>
+                      </div>
+                  </div>
+              </form>
           </div>
-      </form>
+      </div>
+  </div>
+  
 </body>
 </html>

@@ -12,33 +12,52 @@
     <title>Nueva Departamento</title>
 </head>
 <body>
-    <h1>Agregar Departamento</h1>
-    <form method="POST" action="{{route('departamentos.store')}}">
-        @csrf
-        <div class="mb-3">
-          <label for="id" class="form-label">Código Departamento</label>
-          <input type="text" class="form-control" id="id" aria-describedby="idlHelp" name="id">
-          <div id="idlHelp" class="form-text">Id del Departamento</div>
+  <div class="p-5 mb-4 text-bg-dark container-fluid">
+    <div class="container">
+      <h1 class="display-5 fw-bold">Agregar Departamento</h1>
+    </div>
+  </div>
+    <div class="container">
+      <div class="card">
+        <div class="card-header">
+          <span class="text-primary">Datos de departamento</span>
         </div>
-        <div class="mb-3">
-          <label for="name" class="form-label">Nombre Departamento</label>
-          <input type="text" class="form-control" id="name" name="name" aria-describedby="idlHelp"
-            placeholder="Comuna nombre">
+        <div class="card-body">
+          <form class="form-horizontal" role="form" action="{{ route('departamentos.store') }}" method="POST">
+            @csrf
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="id">Código Departamento:</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="id" name="id" placeholder="Ingrese código del departamento">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="name">Nombre Departamento:</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="name" name="name" placeholder="Ingrese nombre del departamento">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="country">País:</label>
+              <div class="col-sm-10">
+                <select class="form-select" id="country" name="code" required>
+                  <option selected disabled value="">Seleccione una...</option>
+                  @foreach ($paises as $pais)
+                    <option value="{{ $pais->pais_codi }}">{{ $pais->pais_nomb }}</option>
+                  @endforeach
+                </select>
+              </div>
+            </div>
+            <div class="form-group mt-2">
+              <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-success">Guardar</button>
+                <a class="btn btn-primary" href="../index.html" role="button">Listado de Departamentos</a>
+              </div>
+            </div>
+          </form>
         </div>
-
-        <div class="mb-3">
-            <label for="country" class="form-label">Pais</label>
-            <select class="form-select" id="country" name="code" required>
-                <option selected disabled value="">Seleccione una...</option>
-                @foreach ($paises as $pais)
-                    <option value="{{ $pais -> pais_codi}}">{{ $pais -> pais_nomb }}</option>
-                @endforeach
-            </select>
-          </div>
-          <div class="mt-3">
-            <button type="submit" class="btn btn-primary">Guardar</button>
-            <a href="{{ route('departamentos.index') }}">Cancelar</a>
-          </div>
-      </form>
+      </div>
+    </div>
+    
 </body>
 </html>
